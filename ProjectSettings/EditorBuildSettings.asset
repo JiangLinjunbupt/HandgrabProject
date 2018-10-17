@@ -4,4 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/HandPhysics/Example/ExampleScene.unity
+    guid: 7be2b60a7062f634a84e90bee97bb6e0

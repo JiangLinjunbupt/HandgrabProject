@@ -384,7 +384,7 @@ public class HandinfController : MonoBehaviour
                     //var qy = Quaternion.Euler(new Vector3(0, 180, 0));
 
                     var Ex = - data_right.fingers[i].Dip * PIover180 / 2;
-                    var Ey = data_right.fingers[i].Mcp_z * PIover180 / 2;
+                    var Ey = (data_right.fingers[i].Mcp_z+30) * PIover180 / 2;
                     var Ez = - data_right.fingers[i].Mcp_x * PIover180 / 2;
 
                     var q = Quaternion.Euler(new Vector3(0, 0, 0)); 
@@ -392,8 +392,8 @@ public class HandinfController : MonoBehaviour
                     q.x = (Mathf.Sin(Ex) * Mathf.Cos(Ez) * Mathf.Cos(Ey) - Mathf.Cos(Ex) * Mathf.Sin(Ez) * Mathf.Sin(Ey));
                     q.y = (Mathf.Cos(Ex) * Mathf.Cos(Ez) * Mathf.Sin(Ey) - Mathf.Sin(Ex) * Mathf.Sin(Ez) * Mathf.Cos(Ey));
                     q.z = (Mathf.Cos(Ex) * Mathf.Sin(Ez) * Mathf.Cos(Ey) + Mathf.Sin(Ex) * Mathf.Cos(Ez) * Mathf.Sin(Ey));
-                    var euler3 = q.eulerAngles;
-                    q = Quaternion.Euler(new Vector3(euler3.x, euler3.y + 15, euler3.z));
+                    //var euler3 = q.eulerAngles;
+                    //q = Quaternion.Euler(new Vector3(euler3.x, euler3.y, euler3.z));
                     RotateFromQ(trans_right[index + 1], q);//near
 
                     var bend1 = -data_right.fingers[i].Pip;

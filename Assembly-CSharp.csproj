@@ -61,6 +61,7 @@
     <Compile Include="Assets\HandPhysics\Scripts\FingerCollisionDetector.cs" />
     <Compile Include="Assets\HandPhysics\Scripts\HandController.cs" />
     <Compile Include="Assets\HandPhysics\Scripts\HandinfController.cs" />
+    <Compile Include="Assets\HandPhysics\Scripts\HandOptimizedDataController.cs" />
     <Compile Include="Assets\HandPhysics\Scripts\HandPart.cs" />
     <Compile Include="Assets\HandPhysics\Scripts\HandPhysicsController.cs" />
     <Compile Include="Assets\HandPhysics\Scripts\Skeleton.cs" />

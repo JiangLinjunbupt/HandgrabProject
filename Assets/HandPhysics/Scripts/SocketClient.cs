@@ -153,7 +153,6 @@
 
 
 
-
 using UnityEngine;
 using System.Collections;
 using System;
@@ -173,12 +172,14 @@ public class SocketClient : MonoBehaviour
     public Int32 port = 10200;
 
     private HandinfController handinfCtrller;
+    private HandOptimizedDataController handoptimizedCtrller;
     private HandController handCtrller;
 
     private static SocketClient Instance;
     private Socket client;
     private string SPLIT = "<EOF>";
     private string SPLIT1 = "<EOF1>";
+    private string SPLIT2 = "<EOF2>";
     //Size of receive buffer.
     private const int BufferSize = 4096;
     //Receive buffer.
@@ -204,6 +205,7 @@ public class SocketClient : MonoBehaviour
         //set hand controller
         handCtrller = GetComponent<HandController>();
         handinfCtrller=GetComponent<HandinfController>();
+        handoptimizedCtrller = GetComponent<HandOptimizedDataController>();
         //handinfCtrller = GameObject.Find("RiggedPepperCutHandsinf").GetComponent<HandinfController>();
         //start client
         StartClient(serverIP, port);
@@ -249,37 +251,65 @@ public class SocketClient : MonoBehaviour
                     buffer = new byte[1024 * 8];
                     int bytesRec = client.Receive(buffer);
                     data += Encoding.ASCII.GetString(buffer, 0, bytesRec);
-                    if (data.IndexOf(SPLIT1) > -1)
+                    if (data.IndexOf(SPLIT2) > -1)
                     {
                         break;
                     }
                 }
                 //Show the data on the console.
+                data = data.Substring(0, data.IndexOf(SPLIT2));
+
+                //string logInfo = string.Format("Data received : {0}", data);
+                //Debug.Log(logInfo);
+
+                var data2 = data.Substring(data.IndexOf(SPLIT1) + 6);
                 data = data.Substring(0, data.IndexOf(SPLIT1));
                 var data1 = data.Substring(data.IndexOf(SPLIT) + 5);
                 data = data.Substring(0, data.IndexOf(SPLIT));
-                
-                
+
+                //string logInfo1 = string.Format("data_glove received : {0}", data);
+                //Debug.Log(logInfo1);
+
+                //string logInfo2 = string.Format("data1 received : {0}", data1);
+                //Debug.Log(logInfo2);
+
+                //string logInfo3 = string.Format("data2 received : {0}", data2);
+                //Debug.Log(logInfo3);
+
+
+                //var data1 = data.Substring(data.IndexOf(SPLIT) + 5);
+                //data = data.Substring(0, data.IndexOf(SPLIT));
+
                 //string logInfo = string.Format("Data received : {0}", data);
                 //Debug.Log(logInfo);
                 //FrameData frame = JsonConvert.DeserializeObject<FrameData>(data);
 
-                var frame = JsonConvert.DeserializeObject<SkeletonJson>(data);
-                var frame1 = JsonConvert.DeserializeObject<HandInf>(data1);
+                //var frame = JsonConvert.DeserializeObject<SkeletonJson>(data);
+                //var frame1 = JsonConvert.DeserializeObject<HandInf>(data1);
+                var frame2 = JsonConvert.DeserializeObject<HandInf>(data2);
 
-                if (!handCtrller.Mutex)
+
+                //if (!handCtrller.Mutex)
+                //{
+                //    handCtrller.update_data(frame);
+                //    string logInfo222 = string.Format("HandContr");
+                //    Debug.Log(logInfo222);
+                //}
+
+                //if (!handinfCtrller.Mutex)
+                //{
+                //    handinfCtrller.update_data(frame1);
+                //    string logInfo223 = string.Format("Handinf");
+                //    Debug.Log(logInfo223);
+                //}
+
+                if (!handoptimizedCtrller.Mutex)
                 {
-                    handCtrller.update_data(frame);
-                    string logInfo222 = string.Format("HandContr");
-                    Debug.Log(logInfo222);
+                    handoptimizedCtrller.update_data(frame2);
+                    string logInfo224 = string.Format("handoptimized");
+                    Debug.Log(logInfo224);
                 }
 
-                if (!handinfCtrller.Mutex)
-                {
-                    handinfCtrller.update_data(frame1);
-                    string logInfo223 = string.Format("Handinf");
-                    Debug.Log(logInfo223);
-                }
             }
             catch (Exception ex)
             {

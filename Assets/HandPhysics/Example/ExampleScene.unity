@@ -860,7 +860,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400080, guid: 3de35d86c0875fe43b064c33627217d0, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 444039298}
-  m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: 0.5}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.0233, y: 0.0356, z: 0.0299}
   m_LocalScale: {x: 1, y: 0.9999997, z: 1.0000004}
   m_Children:
@@ -871,7 +871,7 @@ Transform:
   - {fileID: 1025456435}
   m_Father: {fileID: 836086426}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!65 &444039300
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5072,6 +5072,7 @@ GameObject:
   - component: {fileID: 836086427}
   - component: {fileID: 836086429}
   - component: {fileID: 836086430}
+  - component: {fileID: 836086431}
   m_Layer: 0
   m_Name: RiggedPepperCutHands
   m_TagString: Untagged
@@ -5202,9 +5203,63 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 836086424}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e72a097d379662040a2f3fce5b416ad1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mutex: 0
+  update_flag: 0
+  Type: 0
+  right_pinkey_1: {fileID: 1025456435}
+  right_pinkey_2: {fileID: 581770972}
+  right_pinkey_3: {fileID: 742762249}
+  right_ring_1: {fileID: 1077469788}
+  right_ring_2: {fileID: 43957104}
+  right_ring_3: {fileID: 1885599809}
+  right_middle_1: {fileID: 1495043812}
+  right_middle_2: {fileID: 65155540}
+  right_middle_3: {fileID: 1172825404}
+  right_index_1: {fileID: 604635546}
+  right_index_2: {fileID: 852851500}
+  right_index_3: {fileID: 1194050258}
+  right_thumb_1: {fileID: 1243852989}
+  right_thumb_2: {fileID: 78284232}
+  right_thumb_3: {fileID: 1292806525}
+  right_hand: {fileID: 444039299}
+  right_fore_arm: {fileID: 0}
+  right_middle_arm: {fileID: 0}
+  right_upper_arm: {fileID: 0}
+  left_pinkey_1: {fileID: 0}
+  left_pinkey_2: {fileID: 0}
+  left_pinkey_3: {fileID: 0}
+  left_ring_1: {fileID: 0}
+  left_ring_2: {fileID: 0}
+  left_ring_3: {fileID: 0}
+  left_middle_1: {fileID: 0}
+  left_middle_2: {fileID: 0}
+  left_middle_3: {fileID: 0}
+  left_index_1: {fileID: 0}
+  left_index_2: {fileID: 0}
+  left_index_3: {fileID: 0}
+  left_thumb_1: {fileID: 0}
+  left_thumb_2: {fileID: 0}
+  left_thumb_3: {fileID: 0}
+  left_hand: {fileID: 0}
+  left_fore_arm: {fileID: 0}
+  left_middle_arm: {fileID: 0}
+  left_upper_arm: {fileID: 0}
+  PIover180: 0.017453292
+  modelType: 0
+--- !u!114 &836086431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 836086424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42c24df00dee7384192684ba60cb8b79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Mutex: 0
@@ -5832,8 +5887,6 @@ GameObject:
   - component: {fileID: 1173538968}
   - component: {fileID: 1173538967}
   - component: {fileID: 1173538966}
-  - component: {fileID: 1173538970}
-  - component: {fileID: 1173538971}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5915,31 +5968,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &1173538970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1173538964}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb2fd3167ef90cc4fb583e3d7e22eb05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mMat: {fileID: 2100000, guid: d15466de72dacf347a43c0ba8a403d35, type: 2}
---- !u!114 &1173538971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1173538964}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae6eee4b1a2838f498bae96dafd17049, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CameraTrans: {fileID: 0}
-  image: {fileID: 0}
 --- !u!1 &1194050257
 GameObject:
   m_ObjectHideFlags: 0
