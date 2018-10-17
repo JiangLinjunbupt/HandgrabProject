@@ -199,11 +199,13 @@ class HandOptimizedDataController: MonoBehaviour
 
                     var Ey = data_right.fingers[i].Mcp_x;
                     var Ez = data_right.fingers[i].Mcp_z;
-                    var q = Quaternion.AngleAxis(Ez, new Vector3(0, 0, 1));
-                    q *= Quaternion.AngleAxis(Ey, new Vector3(0, 1, 0));
+
+                    var q = Quaternion.Euler(new Vector3(0, 0, 0));
+
+                    var qq_thumb = Quaternion.Euler(-80.0f + Ey, 120.0f, -70.0f + Ez);
                     //var euler3 = q.eulerAngles;
                     //q = Quaternion.Euler(new Vector3(euler3.x, euler3.y, euler3.z));
-                    RotateFromQ(trans_right[index + 1], q);//near
+                    RotateFromQ(trans_right[index + 1], qq_thumb);//near
 
 
                     var bend1 = -data_right.fingers[i].Pip;
