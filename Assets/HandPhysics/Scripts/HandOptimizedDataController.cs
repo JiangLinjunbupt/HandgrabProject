@@ -221,7 +221,25 @@ class HandOptimizedDataController: MonoBehaviour
                     int index = i* 3;
                     var bend = -data_right.fingers[i].Mcp_x;
                     var strech = data_right.fingers[i].Mcp_z;
-                    var q = Quaternion.AngleAxis(strech, new Vector3(0, 1, 0));
+                    var q = Quaternion.Euler(new Vector3(0, 0, 0));
+                    //这纯粹是为了弥补初始位置不同带来的角度差异
+                    if (i == 4)
+                    {
+                        q = Quaternion.AngleAxis(strech-22, new Vector3(0, 1, 0));
+                    }
+                    else if(i == 3)
+                    {
+                        q = Quaternion.AngleAxis(strech - 10, new Vector3(0, 1, 0));
+                    }
+                    else if(i == 1)
+                    {
+                        q = Quaternion.AngleAxis(strech + 10, new Vector3(0, 1, 0));
+                    }
+                    else
+                    {
+                        q = Quaternion.AngleAxis(strech, new Vector3(0, 1, 0));
+                    }
+                   
                     q *= Quaternion.AngleAxis(bend, new Vector3(0, 0, 1));
                     RotateFromQ(trans_right[index + 1], q);//near
 

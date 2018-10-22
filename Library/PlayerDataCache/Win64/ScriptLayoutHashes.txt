@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-D:/Desktop/HandGrab.exe
+D:/Desktop/HandGrab/HandGrab.exe
 SceneListBegin?
 Assets/HandPhysics/Example/ExampleScene.unity
 SceneListEnd?
