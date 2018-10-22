@@ -163,8 +163,8 @@ class HandOptimizedDataController: MonoBehaviour
     }
     void ReLocation(Transform t, float x, float y, float z)
     {
-        //以（-15,0，-10）为起始点，其中x范围（-15,15）y范围（0,10）z范围（-10,15）
-        Vector3 newposition = new Vector3(-15 + x * 30, 0 + y * 10, -5 + z * 25);
+        //以（-15,0，-10）为起始点，其中x范围（-15,15）y范围（0,10）z范围（-10,20）
+        Vector3 newposition = new Vector3(-15 + x * 30, 0 + y * 10, -10 + z * 30);
         t.position = Vector3.Lerp(t.position, newposition, 5 * Time.deltaTime);
     }
 
