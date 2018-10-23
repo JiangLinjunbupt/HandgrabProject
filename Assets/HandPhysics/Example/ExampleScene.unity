@@ -6282,15 +6282,15 @@ Transform:
     type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 836086424}
-  m_LocalRotation: {x: -0, y: 0.15865694, z: 0.9873338, w: 0}
-  m_LocalPosition: {x: -5.17, y: 9.448363, z: -4.3010483}
-  m_LocalScale: {x: 32, y: 32, z: 32}
+  m_LocalRotation: {x: 0, y: 0.8191521, z: 0.57357645, w: 0}
+  m_LocalPosition: {x: -5.17, y: 5.21, z: -0.92}
+  m_LocalScale: {x: 25, y: 25, z: 25}
   m_Children:
   - {fileID: 444039299}
   - {fileID: 1697542627}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -18.258001, y: 0, z: 180.00002}
+  m_LocalEulerAnglesHint: {x: -110, y: 0, z: 180}
 --- !u!114 &836086427
 MonoBehaviour:
   m_ObjectHideFlags: 0
